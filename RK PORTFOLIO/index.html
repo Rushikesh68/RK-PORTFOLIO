@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rushikesh Kamble | Web Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Rushikesh Kamble</a>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div id="theme-toggle" title="Toggle Theme"><i class="fas fa-sun"></i></div>
+                <div class="hamburger"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <p style="color: var(--primary); font-weight: 600; letter-spacing: 4px; margin-bottom: 1rem;">HI, I'M</p>
+        <h1 style="margin-bottom: 0.5rem;">RUSHIKESH <span class="name">KAMBLE</span></h1>
+        
+        <div class="typewriter" style="font-weight: 500; margin-bottom: 2.5rem; min-height: 1.5em;"></div>
+        
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+            <a href="projects.html" class="btn btn-primary">Projects</a>
+            <a href="contact.html" class="btn btn-outline">Contact</a>
+        </div>
+
+        <a href="#skills" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <section id="skills" class="container skills-section">
+        <h2 style="text-align: center; margin-bottom: 1rem;">My Expertise</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">Technologies I work with to build modern solutions</p>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fab fa-react"></i>
+                <h3>Frontend Dev</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React (Basic)</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>Core Programming</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C++</span>
+                </div>
+            </div>
+
+            <div class="skill-card interest-high">
+                <i class="fas fa-database"></i>
+                <h3>Database Dev</h3>
+                <p style="font-size: 0.8rem; color: #ffd700; margin-bottom: 10px; font-weight: bold;">High Interest</p>
+                <div class="skill-tags">
+                    <span class="skill-tag" style="border-color: #ffd700; color: #ffd700;">MySQL</span>
+                    <span class="skill-tag" style="border-color: #ffd700; color: #ffd700;">SQL Optimization</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-contact-item">
+                    <i class="fas fa-home"></i>
+                    <p>Rahatani Phata, Jay Malhar Colony, Thergaon, <br>Pune, Maharashtra - 411033</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>+91 73875 44121</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>rushikeshkamble771@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <h3>Connect with me !</h3>
+                <p class="copyright-text">© 2026 Rushikesh Kamble. All Rights Reserved.</p>
+                <div class="footer-social-icons">
+                    <a href="https://github.com/Rushikesh68" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/rushikesh-kamble-38986b139" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://wa.me/917387544121" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/rk_editography_/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

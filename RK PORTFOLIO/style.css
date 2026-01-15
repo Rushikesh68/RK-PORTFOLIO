@@ -1,0 +1,699 @@
+:root {
+    --primary: #3b82f6;
+    --bg-dark: #0f172a;
+    --card-dark: rgba(30, 41, 59, 0.7);
+    --text-dark: #f8fafc;
+    --text-muted: #94a3b8;
+    --transition: all 0.3s ease;
+    --glass: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+    --bg-dark: #f1f5f9;
+    --card-dark: rgba(255, 255, 255, 0.8);
+    --text-dark: #0f172a;
+    --text-muted: #475569;
+    --glass: rgba(0, 0, 0, 0.05);
+    --border: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background 0.5s ease;
+}
+
+/* --- NAVIGATION REFINEMENT --- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0 10%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo { 
+    font-weight: 800; 
+    font-size: 1.5rem; 
+    color: var(--primary); 
+    text-decoration: none; 
+}
+
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 2rem; 
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary);
+}
+
+/* --- ICON STYLING --- */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#theme-toggle, .hamburger {
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+#theme-toggle:hover { background: var(--glass); }
+
+.hamburger { display: none; }
+
+/* --- SECTIONS --- */
+section { padding: 100px 10% 60px; min-height: 90vh; }
+
+.hero { 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin: 1rem 0; }
+.hero .name { color: var(--primary); }
+.typewriter { font-size: clamp(1.2rem, 4vw, 1.8rem); color: var(--text-muted); min-height: 1.8em; }
+
+/* --- CONTACT & CARDS REFINEMENT --- */
+.grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem; 
+    margin-top: 3rem; 
+}
+
+.card {
+    background: var(--card-dark);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    backdrop-filter: blur(12px);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.contact-item {
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-item i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1.2rem;
+}
+
+/* --- SKILLS --- */
+.skill-container { margin-bottom: 1.5rem; }
+.skill-info { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+.bar-bg { width: 100%; height: 8px; background: var(--glass); border-radius: 10px; }
+.bar-fill { height: 100%; background: var(--primary); width: 0; transition: 1.5s ease-out; border-radius: 10px; }
+
+/* --- MOBILE RESPONSIVENESS (FIXED) --- */
+@media (max-width: 968px) {
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: var(--bg-dark);
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links.active { display: flex; }
+    .hamburger { display: flex; }
+    
+    .grid { grid-template-columns: 1fr; }
+    section { padding: 100px 5% 40px; }
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary { background: var(--primary); color: white; border: 1px solid var(--primary); }
+.btn-outline { border: 1px solid var(--border); color: var(--text-dark); }
+
+
+/* --- REFINED GLOBAL FOOTER (GLASS STYLE) --- */
+.main-footer {
+    background: var(--glass); /* आपली मूळ ग्लास स्टाईल */
+    backdrop-filter: blur(12px);
+    color: var(--text-dark);
+    padding: 4rem 10% 2rem;
+    margin-top: 5rem;
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left, .footer-right {
+    flex: 1;
+    min-width: 280px;
+}
+
+/* Left Side: Contact Info */
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.footer-contact-item i {
+    font-size: 1.2rem;
+    color: var(--primary); /* आपली मूळ ब्लू थीम */
+    width: 20px;
+    text-align: center;
+}
+
+.footer-contact-item p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--text-dark);
+}
+
+/* Right Side: Social & Copyright */
+.footer-right h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.footer-right .copyright-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-social-icons a {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.footer-social-icons a:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+
+/* --- Hero Section Refinement --- */
+.hero {
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                url('https://images.unsplash.com/photo-1484417894907-623942c8ee29?q=80&w=2000') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- Attractive Buttons with Hover Effects --- */
+.btn {
+    padding: 1rem 2.5rem;
+    border-radius: 50px; /* Rounded pill shape like screenshot */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Primary Button (View Work) */
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    border: 2px solid var(--primary);
+    box-shadow: 0 8px 15px rgba(59, 130, 246, 0.2);
+}
+
+.btn-primary:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 15px 25px rgba(59, 130, 246, 0.4);
+    background: transparent;
+    color: var(--primary);
+}
+
+/* Outline Button (Contact Me) */
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: black;
+    transform: scale(1.05) translateY(-5px);
+}
+
+/* --- Animated Text Glow --- */
+.name {
+    color: var(--primary);
+    text-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
+    to { text-shadow: 0 0 25px rgba(59, 130, 246, 0.8); }
+}
+
+/* --- Scroll Indicator Animation --- */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    animation: bounce 2s infinite;
+    color: white;
+    font-size: 1.5rem;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* --- Light Mode Visibility Fixes --- */
+
+/* १. नावाचा रंग (Name Visibility) */
+[data-theme="light"] .hero h1 {
+    color: #0f172a; /* डार्क कलर जेणेकरून व्हाईट बॅकग्राउंडवर नाव दिसेल */
+}
+
+[data-theme="light"] .name {
+    color: #2563eb; /* थोडा गडद निळा जो लाईट मोडवर उठून दिसतो */
+    text-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
+}
+
+/* २. टाईपरायटर टॅगलाईनचा रंग (Typewriter Visibility) */
+[data-theme="light"] .typewriter {
+    color: #475569; /* डार्क ग्रे रंग */
+    font-weight: 600;
+}
+
+/* ३. बटन टेक्स्ट फिक्स (जर लाईट मोडमध्ये बटणे दिसत नसतील) */
+[data-theme="light"] .btn-outline {
+    border-color: #0f172a;
+    color: #0f172a;
+}
+
+[data-theme="light"] .btn-outline:hover {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+/* ४. हिरो सेक्शन ओव्हरले (बॅकग्राउंड इमेज असूनही टेक्स्ट दिसण्यासाठी) */
+[data-theme="light"] .hero {
+    background: linear-gradient(rgba(241, 245, 249, 0.9), rgba(241, 245, 249, 0.9)), 
+                url('https://images.unsplash.com/photo-1484417894907-623942c8ee29?q=80&w=2000');
+    background-size: cover;
+}
+
+
+
+
+/* --- Global Logo Style Fix --- */
+nav .logo, 
+.logo {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 800 !important; /* हे तुमच्या होम पेजसारखं बोल्ड करेल */
+    color: var(--primary) !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    line-height: 1.2 !important;
+    /* इतर पेजेसवर इटॅलिक किंवा वेगळा स्टाईल येऊ नये म्हणून */
+    font-style: normal !important;
+    text-transform: none !important;
+}
+
+/* Light Theme मध्ये सुद्धा फॉन्ट तोच राहण्यासाठी */
+[data-theme="light"] nav .logo {
+    color: var(--primary) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* --- Mobile Navbar Icon Alignment Fix --- */
+@media (max-width: 968px) {
+    /* १. उजव्या बाजूचे आयकॉन्स जवळ आणण्यासाठी */
+    .nav-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important; /* ही स्पेसिंग कमी केल्यामुळे आयकॉन्स जवळ येतील */
+        margin-right: -10px; /* कोपऱ्यापासून थोडं अ‍ॅडजस्ट करण्यासाठी */
+    }
+
+    /* २. आयकॉन्सची साईज थोडी कमी करणे जेणेकरून ते क्लिन दिसतील */
+    #theme-toggle, .hamburger {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 1.1rem !important;
+    }
+
+    /* ३. लोगो आणि आयकॉन्समध्ये योग्य अंतर ठेवण्यासाठी */
+    nav {
+        padding: 0 5% !important; /* मोबाईलवर साईड स्पेसिंग कमी केली */
+    }
+}
+
+
+
+/* --- Modern Skills Section --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.skill-card {
+    background: var(--card-dark);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    text-align: center;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect: Card वर नेल्यावर ग्लो येईल */
+.skill-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+
+.skill-card i {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.skill-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: var(--text-dark);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Database Card साठी स्पेशल ग्लो (कारण तुमचा यात हाय इंटरेस्ट आहे) */
+.interest-high {
+    border: 1px solid rgba(255, 215, 0, 0.3); /* Gold tint */
+}
+.interest-high i {
+    color: #ffd700; /* Database icon in gold */
+}
+
+
+
+/* About Text Styling */
+.about-text {
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.about-text strong {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* Info Grid Styling - Developer & Editor Mix */
+.about-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+.info-item:hover {
+    border-color: var(--primary);
+    transform: translateX(5px);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.info-item i {
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+
+
+/* Career Objective Styling */
+.career-objective p {
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Compact Text Styling */
+.about-text {
+    margin-bottom: 1rem; /* Space कमी केली */
+    line-height: 1.6;
+    font-size: 1rem; /* थोडा लहान आणि नीटनेटका फॉन्ट */
+    color: var(--text-muted);
+}
+
+.about-text strong {
+    color: var(--primary);
+}
+
+/* Info Grid Layout Fix */
+.about-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* दोन कॉलम मध्ये विभागणी */
+    gap: 12px;
+    margin: 1.5rem 0;
+}
+
+@media (max-width: 600px) {
+    .about-info-grid {
+        grid-template-columns: 1fr; /* मोबाईलवर एका खाली एक */
+    }
+}
+
+
+
+/* --- Project Cards Styling --- */
+.project-card {
+    background: var(--card-dark);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+}
+
+ .project-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+} 
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.tech-stack span {
+    background: var(--primary);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    margin: 3px;
+    display: inline-block;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+}
+
+.project-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.btn-link:hover {
+    color: white;
+}
