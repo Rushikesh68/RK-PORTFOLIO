@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rushikesh-kamble.netlify.app/sitemap.xml
